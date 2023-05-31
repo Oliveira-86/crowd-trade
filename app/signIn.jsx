@@ -4,8 +4,8 @@ import { View, Text } from 'react-native'
 
 const SignIn = () => {
   return (
-    <View>
-      <Text>SignIn</Text>
+    <View className="flex-1 flex items-center justify-center">
+      <Text className="text-primary">SignIn</Text>
       <Link href="/signUp">go to sign up</Link>
     </View>
   )
