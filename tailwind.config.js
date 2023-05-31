@@ -17,6 +17,10 @@ module.exports = {
         white: '#FFF',
         bg_primary: '#F7EFFF',
       },
+      fontFamily: {
+        sora: ['Sora-Regular'],
+        sora_bold: ['Sora-Bold'],
+      },
     },
   },
   plugins: [],
