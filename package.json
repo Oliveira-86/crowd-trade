@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "clsx": "^1.2.1",
     "expo": "~48.0.18",
     "expo-constants": "~14.2.1",
     "expo-font": "^11.1.1",
