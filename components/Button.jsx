@@ -1,8 +1,9 @@
 import { TouchableOpacity, Text } from 'react-native'
 import React from 'react'
 import clsx from 'clsx'
+import Spinner from './Spinner'
 
-const Button = ({ large, variant, label }) => {
+const Button = ({ large, variant, label, isLoading }) => {
   return (
     <TouchableOpacity
       className={clsx(
@@ -25,21 +26,25 @@ const Button = ({ large, variant, label }) => {
         variant === 'outlinedPrimary' && 'bg-bg_primary border-none'
       )}
     >
-      <Text
-        className={clsx(
-          `
+      {isLoading ? (
+        <Spinner variant={variant} />
+      ) : (
+        <Text
+          className={clsx(
+            `
           text-sm
           text-center
           font-sora_bold
           uppercase
         `,
-          (variant === 'primary' || variant === 'secondary') && 'text-white',
-          (variant === 'outlined' || variant === 'outlinedPrimary') &&
-            'text-primary'
-        )}
-      >
-        {label}
-      </Text>
+            (variant === 'primary' || variant === 'secondary') && 'text-white',
+            (variant === 'outlined' || variant === 'outlinedPrimary') &&
+              'text-primary'
+          )}
+        >
+          {label}
+        </Text>
+      )}
     </TouchableOpacity>
   )
 }

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import Feather from '@expo/vector-icons/Feather'
-import clsx from 'clsx'
+import Spinner from './Spinner'
 
-const Input = ({ label, eyes }, props) => {
+const Input = ({ label, eyes, size, isLoading, errorMessage }, props) => {
   const [isSecureEntry, setIsSecureEntry] = useState(props.isSecureEntry)
 
   useEffect(() => {
@@ -36,9 +36,14 @@ const Input = ({ label, eyes }, props) => {
                 <Feather name="eye" size={20} color="#A0A0A0" />
               )}
             </TouchableOpacity>
-            {props.errorMessage && (
+            {isLoading && (
+              <View className="absolute right-[15px] left-[15px] ">
+                <Spinner size={size} />
+              </View>
+            )}
+            {errorMessage && (
               <Text className="absolute bottom-[-22px] text-red-600 text-xs font-sora mt-1">
-                {props.errorMessage}
+                {errorMessage}
               </Text>
             )}
           </View>
