@@ -3,7 +3,10 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import Feather from '@expo/vector-icons/Feather'
 import Spinner from './Spinner'
 
-const Input = ({ label, eyes, size, isLoading, errorMessage }, props) => {
+const Input = (
+  { label, eyes, size, isLoading, errorMessage, style, placeholder },
+  props
+) => {
   const [isSecureEntry, setIsSecureEntry] = useState(props.isSecureEntry)
 
   useEffect(() => {
@@ -11,7 +14,7 @@ const Input = ({ label, eyes, size, isLoading, errorMessage }, props) => {
   }, [props.isSecureEntry])
 
   return (
-    <>
+    <View className="w-full" style={style}>
       <Text className="font-sora w-full text-xs decoration-0 mb-1 text-gray_default">
         {label}
       </Text>
@@ -25,6 +28,7 @@ const Input = ({ label, eyes, size, isLoading, errorMessage }, props) => {
           placeholderTextColor="#A0A0A0"
           autoCapitalize={props.autoCapitalize || 'none'}
           multiline={props.multiline}
+          placeholder={placeholder}
         />
 
         {eyes && (
@@ -49,7 +53,7 @@ const Input = ({ label, eyes, size, isLoading, errorMessage }, props) => {
           </View>
         )}
       </View>
-    </>
+    </View>
   )
 }
 
