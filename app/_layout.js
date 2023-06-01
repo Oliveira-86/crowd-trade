@@ -4,7 +4,7 @@ export default layout = () => {
   return (
     <Stack>
       <Stack.Screen name="signIn" options={{ title: '' }} />
-      <Stack.Screen name="signUp" />
+      <Stack.Screen name="signUp" options={{ title: '' }} />
     </Stack>
   )
 }

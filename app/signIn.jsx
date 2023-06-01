@@ -20,9 +20,8 @@ const SignIn = () => {
       <View className="flex flex-row items-center gap-1 mt-1 text-gray_default">
         <Text className="text-gray_default">Don’t have an account?</Text>
         <Link href="/signUp">
-          <Text className="text-gray_default underline">Sign up</Text>
+          <Text className="underline">Sign up here</Text>
         </Link>
-        <Text className="text-gray_default">here</Text>
       </View>
     </View>
   )
