@@ -4,12 +4,16 @@ import { View, Text, ToastAndroid } from 'react-native'
 import Button from '../components/Button'
 import Input from '../components/Input'
 import { onValidateEmail, onValidatePassword } from '../lib/validation'
+import { useSearchParams } from 'expo-router'
 
 const SignIn = () => {
+  const { name, emailParams } = useSearchParams()
   const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState(emailParams)
   const [hasPasswordError, setHasPasswordError] = useState('')
   const [hasEmailError, setHasEmailError] = useState('')
+
+  console.log(name, emailParams)
 
   const onEmailText = (text) => {
     setEmail(text)
@@ -20,6 +24,7 @@ const SignIn = () => {
     }
     setHasEmailError('')
   }
+
   const onPasswordText = (text) => {
     setPassword(text)
     const res = onValidatePassword(text)
@@ -31,12 +36,13 @@ const SignIn = () => {
   }
 
   const onSubmitSignIn = () => {
-    // router.push(/)
+    // router.push('/')
   }
   return (
     <View className="flex-1 bg-white flex items-center py-5 px-5">
       <Text className="font-sora_bold text-lg mb-8">Login</Text>
       <Input
+        value={emailParams ? emailParams : email}
         label="E-mail"
         isLoading
         size="small"
