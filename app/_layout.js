@@ -5,6 +5,7 @@ export default layout = () => {
     <Stack>
       <Stack.Screen name="signIn" options={{ title: '' }} />
       <Stack.Screen name="signUp" options={{ title: '' }} />
+      <Stack.Screen name="tabs" options={{ headerShown: false }} />
     </Stack>
   )
 }

@@ -13,7 +13,7 @@ const SignIn = () => {
   const [hasPasswordError, setHasPasswordError] = useState('')
   const [hasEmailError, setHasEmailError] = useState('')
 
-  console.log(name, emailParams)
+  const router = useRouter()
 
   const onEmailText = (text) => {
     setEmail(text)
@@ -36,7 +36,7 @@ const SignIn = () => {
   }
 
   const onSubmitSignIn = () => {
-    // router.push('/')
+    router.push('/tabs')
   }
   return (
     <View className="flex-1 bg-white flex items-center py-5 px-5">
