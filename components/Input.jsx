@@ -4,7 +4,18 @@ import Feather from '@expo/vector-icons/Feather'
 import Spinner from './Spinner'
 
 const Input = (
-  { label, eyes, size, isLoading, errorMessage, style, placeholder },
+  {
+    label,
+    eyes,
+    size,
+    isLoading,
+    errorMessage,
+    style,
+    placeholder,
+    onChangeText,
+    onFocus,
+    onBlur,
+  },
   props
 ) => {
   const [isSecureEntry, setIsSecureEntry] = useState(props.isSecureEntry)
@@ -23,12 +34,11 @@ const Input = (
           {...props}
           className="py-2 px-3 text-base font-sora text-gray_default"
           secureTextEntry={isSecureEntry}
-          bigRight={props.bigRight}
-          onFocus={props.onFocus}
+          onFocus={onFocus}
           placeholderTextColor="#CFCFCF"
-          autoCapitalize={props.autoCapitalize || 'none'}
-          multiline={props.multiline}
           placeholder={placeholder}
+          onChangeText={onChangeText}
+          onBlur={onBlur}
         />
 
         {eyes && (
@@ -45,12 +55,12 @@ const Input = (
                 <Spinner size={size} />
               </View>
             )}
-            {errorMessage && (
-              <Text className="absolute bottom-[-22px] text-red-600 text-xs font-sora mt-1">
-                {errorMessage}
-              </Text>
-            )}
           </View>
+        )}
+        {errorMessage && (
+          <Text className="absolute bottom-[-17] w-full text-red-600 text-xs">
+            {errorMessage}
+          </Text>
         )}
       </View>
     </View>
