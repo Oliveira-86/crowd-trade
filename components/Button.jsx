@@ -3,9 +3,11 @@ import React from 'react'
 import clsx from 'clsx'
 import Spinner from './Spinner'
 
-const Button = ({ large, variant, label, isLoading }) => {
+const Button = ({ large, variant, label, isLoading, onPress, disabled }) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
+      disabled={disabled}
       className={clsx(
         `
         relative 
@@ -23,7 +25,8 @@ const Button = ({ large, variant, label, isLoading }) => {
         variant === 'secondary' && 'bg-secondary border-none',
         variant === 'outlined' &&
           'bg-transparent border-[1px] border-gray_default',
-        variant === 'outlinedPrimary' && 'bg-bg_primary border-none'
+        variant === 'outlinedPrimary' && 'bg-bg_primary border-none',
+        disabled && 'bg-gray_default'
       )}
     >
       {isLoading ? (
